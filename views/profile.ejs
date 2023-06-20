@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs')%>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+    <div class="container">
+        <div class="main">
+            <div class="categories">
+                <h3>Жанры</h3>
+                <a href="">Боевик</a>
+            </div>
+            <div class="main-content">
+                <h3>Профиль</h3>
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="/images/profile.png" alt="">
+                    </div>
+                    <div class="profile-info">
+                        <p><span>Полное имя: </span>Имя</p>
+                        <p><span>E-mail: </span>Почта</p>
+                            <a class="edit-btn">Редактировать профиль</a>
+                            <a href="/" class="logout-btn">Выход</a>
+                    </div>
+                </div>
+                <h3>Сохраненные фильмы</h3>
+                <a href="/new" class="add-btn">Добавить фильм</a>
+                <%
+                    films.forEach(film => {
+
+                    
+                %>
+                <div class="main-card">
+                    <div class="card-left">
+                        <div class="film-img">
+                            <img src="" alt="">
+                        </div>
+                        <div class="film-info">
+                            <a href="/"><%=film.title_rus%></a>
+                            <a href="/"><%=film.title_eng%>, <%=film.year%>, <%=film.time%> min</a>
+                            <a href="/">Страна, Жанр</a>
+                            <button class="film-btn">
+                                <img src="<%=film.image%>" alt="">
+                                Смотреть
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-right">   
+                        <div class="film-rate">
+                            <p>7.3</p>
+                        </div>
+                        <button class="film-btn">
+                            <img src="/images/icons/saved.png" alt="">
+                            Сохранено
+                        </button>
+                    </div>
+                </div>
+                <%
+                    })
+                %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
